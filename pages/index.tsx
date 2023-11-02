@@ -2,10 +2,13 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { BaseSyntheticEvent, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+
 
 const Home: NextPage = () => {
   const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
+  const [location, setLocation] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
@@ -20,7 +23,7 @@ const Home: NextPage = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ phone: phone, message: message }),
+      body: JSON.stringify({ phone: phone, location: location }),
     });
     const apiResponse = await res.json();
 
@@ -32,13 +35,14 @@ const Home: NextPage = () => {
     setLoading(false);
   };
   return (
-    <div className={styles.container}>
+    <div className={styles.container} >
       <Head>
         <title>Next.js + Twilio</title>
       </Head>
 
       <form className={styles.form} onSubmit={sendMessage}>
-        <h1 className={styles.title}>Send message using Next.js and Twilio</h1>
+      <h1 className={styles.title1}>EmberAlert</h1>
+        <h1 className={styles.title}>Opt in to receive SMS text messages if a wildfire is in your area!</h1>
         <div className={styles.formGroup}>
           <label htmlFor='phone'>Phone Number</label>
           <input
@@ -49,17 +53,17 @@ const Home: NextPage = () => {
           />
         </div>
         <div className={styles.formGroup}>
-          <label htmlFor='message'>Message</label>
+          <label htmlFor='location'>Location</label>
           <textarea
-            onChange={(e) => setMessage(e.target.value)}
-            id='message'
+            onChange={(e) => setLocation(e.target.value)}
+            id='location'
             required
-            placeholder='Message'
+            placeholder='Location'
             className={styles.textarea}
           ></textarea>
         </div>
         <button disabled={loading} type='submit' className={styles.button}>
-          Send Message
+          Submit
         </button>
         {success && (
           <p className={styles.success}>Message sent successfully.</p>
