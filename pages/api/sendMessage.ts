@@ -9,7 +9,7 @@ export default function sendMessage(req: NextApiRequest, res: NextApiResponse) {
   // console.log(phone, message);
   client.messages
     .create({
-      body: 'EmberAlert: Thank you for opting in to receive alerts about wildfires in your area! Std Msg & data rates may apply. Reply HELP for help, STOP to cancel.',
+      body: 'EmberAlert: Thank you for opting in to receive alerts about wildfires near you! ' +'-'+location +'. ' +'Std Msg & data rates may apply. Reply HELP for help, STOP to cancel.',
       from: '+16418475449',
       to: phone,
     })
