@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
+import Image from 'next/image';
 
 const Home = () => {
   const [phone, setPhone] = useState('');
@@ -76,8 +77,17 @@ const Home = () => {
         <title>Next.js + Twilio</title>
       </Head>
       <form className={styles.form} onSubmit={sendMessage}>
-        <h1 className={styles.title1}>EmberAlert</h1>
-        <h1 className={styles.title}>
+        <div>
+    </div>
+    <div>
+      <Image
+        src="/emberalert.png"
+        width={900}
+        height={200}
+        alt="Picture of the author"
+      />
+    </div>
+    <h1 className={styles.title}>
           Opt in to receive SMS text messages if a wildfire is in your area!
         </h1>
 
