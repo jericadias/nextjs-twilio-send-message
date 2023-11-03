@@ -8,7 +8,7 @@ export default function sendMessage(req: NextApiRequest, res: NextApiResponse) {
   const { phone, address, city, stateProvince, zipCode, country } = req.body;
 
   const messageBody = `EmberAlert: Thank you for opting in to receive alerts about wildfires. 
-Location Details: 
+Location Details:
 - Address: ${address}
 - City: ${city}
 - State/Province: ${stateProvince}
@@ -19,7 +19,7 @@ Std Msg & data rates may apply. Reply HELP for help, STOP to cancel.`;
   client.messages
     .create({
       body: messageBody,
-      from: '+12519738596',
+      from: '17407626065',
       to: phone,
     })
     .then(() =>
